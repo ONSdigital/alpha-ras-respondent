@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 
+
+
 @EnableDiscoveryClient
 @RestController
 @SpringBootApplication
@@ -29,3 +31,6 @@ public class MicroService {
 }
 
 
+//TODO: set up eureka registry
+//TODO: look at comments in Application.java in ras-gateway
+//
