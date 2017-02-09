@@ -9,7 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 
 
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @RestController
 @SpringBootApplication
 public class MicroService {
