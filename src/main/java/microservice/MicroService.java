@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 
 
 
@@ -12,12 +13,13 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 @RestController
 @SpringBootApplication
+@EnableOAuth2Sso
 public class MicroService {
 
 
   @RequestMapping(value = "/available")
   public String available() {
-    return "Spring in Action";
+    return "Spring Microservice in Action";
   }
 
   @RequestMapping(value = "/checked-out")
