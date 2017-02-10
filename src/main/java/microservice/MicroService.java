@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth
 
 
 
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @RestController
 @SpringBootApplication
 @EnableOAuth2Sso
