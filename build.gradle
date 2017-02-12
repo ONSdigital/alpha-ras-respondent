@@ -1,3 +1,6 @@
+import org.apache.tools.ant.filters.*
+import java.text.SimpleDateFormat
+
 buildscript {
 	ext {
 		springBootVersion = '1.4.3.RELEASE'
@@ -17,9 +20,10 @@ apply plugin: 'spring-boot'
 apply plugin: 'io.spring.dependency-management'
 
 jar {
-	baseName = 'respondent'
-	version = '0.0.1-SNAPSHOT'
+	baseName=project.property("application.name")
+	version=project.property("application.version")
 }
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -33,12 +37,27 @@ dependencyManagement {
 	}
 }
 
-
 dependencies {
 	compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile("org.springframework.boot:spring-boot-starter-web")
-    
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	    
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
+processResources {
+    
+    filter ReplaceTokens, tokens: [
+        "application.version": project.property("application.version"),
+        "application.version.type": project.property("application.version.type"),
+        "application.version.builddate": currentDateTimeFormatted()
+    ]
+
+}
+
+def currentDateTimeFormatted() {
+
+    SimpleDateFormat df = new SimpleDateFormat ("dd/MM/yyyy HH:mm:ss")
+    return df.format (new Date())
+
+}
