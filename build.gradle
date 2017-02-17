@@ -48,7 +48,8 @@ dependencies {
 processResources {
     
     filter ReplaceTokens, tokens: [
-        "application.version": project.property("application.version"),
+        "application.name": project.property("application.name"),
+		"application.version": project.property("application.version"),
         "application.version.type": project.property("application.version.type"),
         "application.version.builddate": currentDateTimeFormatted()
     ]
